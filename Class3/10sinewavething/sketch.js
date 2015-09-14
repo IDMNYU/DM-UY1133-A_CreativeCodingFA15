@@ -1,39 +1,41 @@
 var thex, they;
-var v; // velocity
-var t; // angle
+var c; // cosine value
+var incr; // increment
 
 function setup() {
   createCanvas(800, 400); // sets up the size of the canvas
 
   background(0);
 
-  thex = random(0, width);
-  they = random(0, height);
+  thex = 0;
+  they = height/2;
 
-  v = random(5, 20); // random velocity
-  t = random(0, TWO_PI); // random angle
+  c = 0.; // start at zero
+  incr = 0.1;
 }
 
 function draw() {
-  background(0);
   fill(255);
-  ellipse(thex, they, 30, 30);
-
-  thex = thex+v*cos(t);
-  they = they+v*sin(t);
+  ellipse(thex, they, 10, 10);
   
-  if(thex>width) t = PI - t;
-  if(thex<0) t = PI -t;
-  if(they>height) t = TWO_PI - t;
-  if(they<0) t = TWO_PI - t;
+  incr = map(mouseX, 0, width-1, 0., 0.25);
+  
+  c = (c+incr) % TWO_PI;
+  println(c);
+
+  thex = thex+1; // increment the x value
+  if(thex>width)
+  {
+     thex = 0;
+     background(0); 
+  }
+  // map is your best friend:
+  
+  var theamp = mouseY/2;
+  
+  they = map(sin(c), -1., 1., 0+theamp, height-theamp);
   
 }
 
 function keyReleased() {
-
-  thex = random(0, width);
-  they = random(0, height);
-
-  v = random(5, 20); // random velocity
-  t = random(0, TWO_PI); // random angle
 }

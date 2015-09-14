@@ -1,6 +1,6 @@
 
-var cols = 50;
-var rows = 50;
+var cols = 30;
+var rows = 30;
 
 var red, green, blue;
 
@@ -35,24 +35,12 @@ function drawEverything()
     for (var j =0; j<rows; j++)
     {
       fill(red, green, blue);
-      rect(i*xstep+xstep/2, j*ystep+ystep/2, xstep*0.8, ystep*0.8);
+      rect(i*xstep, j*ystep, xstep*0.8, ystep*0.8);
       //println("column: " + i + " row: " + j);
-      red = clamp(red+random(-10, 10), 0, 255);
-      green = clamp(green+random(-10, 10), 0, 255);
-      blue = clamp(blue+random(-10, 10), 0, 255);
+      // constrain keeps things in a range
+      red = constrain(red+random(-10, 10), 0, 255);
+      green = constrain(green+random(-10, 10), 0, 255);
+      blue = constrain(blue+random(-10, 10), 0, 255);
     }
   }
 }
-
-// this function keeps things in range
-function clamp(thingie, themin, themax)
-{
-  // this fixes it if i screw up and make themin higher than themax:
-  var realmin = min(themin, themax);
-  var realmax = max(themin, themax);
-  // figure it out:
-  thingie = min(thingie, realmax);
-  thingie = max(thingie, realmin);
-  return(thingie);
-}
-

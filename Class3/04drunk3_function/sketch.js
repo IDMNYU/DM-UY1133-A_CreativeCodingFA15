@@ -63,6 +63,10 @@ function keyReleased()
 }
 
 
+// implements a gaussian distribution
+// (a.k.a. the dungeons and dragons algorithm)
+// with a variable width so we can get super random
+// versus very constrained random behavior
 function myDrunkenCurve(min, max, Q)
 {
   

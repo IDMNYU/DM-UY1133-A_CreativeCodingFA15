@@ -22,6 +22,7 @@ function draw() {
   // this is how far away the thingie is from the mouse
   var dx = (mouseX-x1)/20.;
   var dy = (mouseY-y1)/20.;
+  //console.log(Math.floor(dx) + " " + Math.floor(dy));
   
   var drunkx = 0.;
   drunkx += random(-20, 20);
@@ -34,11 +35,9 @@ function draw() {
   drunky += random(-20, 20);
   drunky = drunky / 3.;
   
-  //println(dx + " " + dy);
-  
   // this adds the distance and some drunkness to the position
-  x2 = x1+random(min(0, dx), max(0, dx))+drunkx;
-  y2 = y1+random(min(0, dy), max(0, dy))+drunky;
+  x2 = x1+random(0, dx)+drunkx; // apparently, javascript doesn't care
+  y2 = y1+random(0, dy)+drunky;
   
   // draw the line
   noFill(); // don't draw a fill

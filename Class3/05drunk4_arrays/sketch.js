@@ -11,7 +11,7 @@ var r = new Array(NUMGNATS);
 var g = new Array(NUMGNATS);
 var b = new Array(NUMGNATS);
 
-
+// these are offsets for a triangle
 var p1x = 0;
 var p1y = -10;
 var p2x = -10;
@@ -22,8 +22,6 @@ var p3y = 10;
 
 function setup() {
   createCanvas(800, 600); // sets up the size of the canvas
-  
-  background(0, 0, 0);
   
   background(0, 0, 0);
 
@@ -45,9 +43,8 @@ function draw() {
   fill(0, 0, 0, 10);
   rect(0, 0, width, height);
 
-
   var weight = sqrt((mouseX-pmouseX)*(mouseX-pmouseX)+(mouseY-pmouseY)*(mouseY-pmouseY));
-  var aa = max(0.01, min(weight/50., 1.0));
+  var aa = max(0.1, min(weight/20., 1.0));
   var bb = 1.0-aa;
 
   // THIS IS THE MAIN LOOP
@@ -60,8 +57,10 @@ function draw() {
     var drunky = myDrunkenCurve(-50, 50, 3);
     ;
     // this adds the distance and some drunkness to the position
-    var shiftx = x1[i]+random(min(0, dx), max(0, dx))+drunkx;
-    var shifty = y1[i]+random(min(0, dy), max(0, dy))+drunky;
+    var shiftx = x1[i]+random(0, dx)+drunkx;
+    var shifty = y1[i]+random(0, dy)+drunky;
+    //x2[i] = shiftx;
+    //y2[i] = shifty;
     x2[i] = aa*shiftx + bb*x1[i];
     y2[i] = aa*shifty + bb*y1[i];
 
@@ -82,12 +81,6 @@ function draw() {
     x1[i] = x2[i];
     y1[i] = y2[i];
 
-
-    // checking the boundaries
-    if (x1[i]>width) x1[i] = 0;
-    if (x1[i]<0) x1[i] = width;
-    if (y1[i]>height) y1[i] = 0;
-    if (y1[i]<0) y1[i] = height;
   }
 }
 
