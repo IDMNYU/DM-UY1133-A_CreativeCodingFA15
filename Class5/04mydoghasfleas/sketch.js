@@ -31,8 +31,8 @@ function draw() {
   
   for(var i = 0;i<4;i++)
   {
-    //textAlign(CENTER);
-    //textFont(thefont[i]);
+    textAlign(CENTER);
+    textFont(thefont[i]);
     textSize(framecount);
     fill(random(0, 255));
     text(thewords[i]+' ', xposition, mouseY);

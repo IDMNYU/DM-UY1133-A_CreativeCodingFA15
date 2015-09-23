@@ -6,15 +6,18 @@ var currentline = '';
 var alicepositions = new Array();
 var alicesizes = new Array();
 
+var thefont;
+
 function preload() {
   // ignore the bullshit error that happens when you do this:
   alice = loadStrings('./data/aliceinwonderland.txt');
+  thefont = loadFont('./data/font1.otf'); // loads a font from the disk
 }
 
 function setup() {
   createCanvas(800, 600);
   console.log(alice.length); // how long is the file?
-  
+  textFont(thefont);
   doit();  
 }
 
