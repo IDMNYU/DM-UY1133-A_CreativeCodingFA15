@@ -4,13 +4,14 @@ var NUMPICS = 3;
 
 var thedonald = new Array(NUMPICS); // this holds the image
 
-var jeb;
+var jeb, ted;
 var dangle = 0;
 
 var donalds = new Array(NUMDONALDS);
 
 function preload() {
   jeb = loadImage('./data/jeb.jpg');
+  ted = loadImage('./data/ted.png');
   for(var i = 0;i<NUMPICS;i++) {
     thedonald[i] = loadImage('./data/trump'+(i+1)+'.png');
   }
@@ -42,7 +43,7 @@ function draw() {
   image(jeb, -25, -25, 50, 50);
   rotate(dangle);
   translate(30, 30);
-  image(thedonald[0], -12, -12, 24, 24);
+  image(ted, -12, -12, 24, 24);
  
   dangle = (dangle+0.1) % TWO_PI;
 }
