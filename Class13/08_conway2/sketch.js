@@ -10,6 +10,7 @@ function preload() {
 }
 function setup() {
   createCanvas(600, 600);
+  noSmooth();
 }
 function draw() {
   background(0, 0, 255);
