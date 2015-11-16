@@ -79,7 +79,7 @@ function stahtOvah()
   if(bricks!=undefined){
     for(var i = 0;i<ROWS*COLUMNS;i++)
     {
-      bricks[0].remove(); // always remove the 0 element
+      if(bricks[0]!=undefined) bricks[0].remove(); // always remove the 0 element
     }
   bricks.clear();
   }
@@ -100,6 +100,7 @@ function stahtOvah()
       // make a single sprite:
       var singlebrick = createSprite(xoffset+x, yoffset+y, BRICK_W, BRICK_H);
       singlebrick.immovable = true;
+      singlebrick.shapeColor = color(random(192)+64, random(192)+64, random(192)+64);
       
       // add it to the Group array:
       bricks.add(singlebrick);
