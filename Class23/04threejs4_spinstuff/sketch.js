@@ -15,8 +15,8 @@ var thesphere_angle = 0;
 
 function init() {
   setupCamera(); // get the camera happening
-  makeScene(); // lights, textures, materials, objects
   setupRenderer(); // the main renderer
+  makeScene(); // lights, textures, materials, objects
   addToWebPage(renderer); // add the WebGL to the web page
 
 	window.addEventListener( 'resize', onWindowResize, false );
